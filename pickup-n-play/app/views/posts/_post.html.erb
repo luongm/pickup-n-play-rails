@@ -3,7 +3,7 @@
     <div class="gamePost_user">
       <div class="gamePost_user_pic"></div>
       <div class="gamePost_user_name">
-        <p><a href='sumedhprofile.html'><%= event[:user_id]%></a></p>
+        <p><a href='sumedhprofile.html'> <%=username%> </a></p>
       </div>
     </div>
     <div class="gamePost_messageBubble">
@@ -16,19 +16,22 @@
   
   <div class="gamePost_content">
     <div class="gamePost_sportPic">
-      <img src="images/basketball_court.gif">
+      <img src=<%=event[:sport_image]%>>
     </div>
     <div class="gamePost_info">
-      <div class="gamePost_sportName"><%= event[:name]%></div>
-      <div id="gamePostLocation1" class="gamePost_location">@ RSF</div>
-      <div class="gamePost_time">2:00 - 3:00 pm</div>
+      <div class="gamePost_sportName"><%=event[:sport_name]%></div>
+      <div id="gamePostLocation1" class="gamePost_location">@ <%=event[:location]%></div>
+      <div class="gamePost_time">
+        From <%=Time.parse(event[:start_time]).to_s(:short)%><br>
+        Til' <%=event[:end_time]%>
+      </div>
       <div class="gamePost_socialInfo">3 likes | 12 comments</div>
     </div>
   </div>
   
   <div class="gamePost_bottomBar">
     <div class="gamePost_postedTime">
-      Posted 20 seconds ago
+      Posted <%=time_ago_in_words(event[:posted_time])%>
     </div>
     <div class="gamePost_actions">
       <text onclick="alert('Liking...')">Like</text> |

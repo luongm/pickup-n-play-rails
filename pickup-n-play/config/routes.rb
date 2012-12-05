@@ -1,15 +1,12 @@
 PickupNPlay::Application.routes.draw do
 
-  get "main/index"
+  # get "main/index"
 
   # Route for /
   root :to => "home#index" # file home, function index
 
   # main content
-  match "/m" => "main#index"
-
-  # 
-  match "posts" => "app#posts_create", :as => "posts", :via => :post
+  match "/main" => "main#index"
   
   #get "home/index"
 

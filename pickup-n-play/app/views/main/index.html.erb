@@ -80,8 +80,15 @@
 
       <!--MAIN CONTENT HTML-->
       <div id="mainContentWrapper" class="mainContentWrapper">
-        <%= render "posts/post" %>
-        <%= render "posts/post" %>
+        <% if @events.empty? %>
+        <p>There are no events in the database. Create one!</p>
+        <% end %>
+        
+        <% @events.each do |event| %>
+        <%   username = User.where(:id => event.user_id)[0].name %>
+        <%   # TODO count how many users participating the event %>
+        <%=  render "posts/post", :event => event, :username => username %>
+        <% end %>
       </div>
     </div>
   </body>
