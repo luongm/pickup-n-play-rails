@@ -1,9 +1,12 @@
-If you make changes to the database schemas, run the following commands to reset the database
-`rake db:drop`
-`rake db:migrate`
-`rake db:seed`
+If you make changes to the database schemas or the default data in `db/seeds.rb`, run the following commands to reset the database
 
-You can change the initial database here in `db/seeds.rb`
+    rake db:drop
+    rake db:migrate
+    rake db:seed
 
-Start the server
-`rails server`
+
+To start the server
+
+    rails server
+
+Then go to http://0.0.0.0:3000/
